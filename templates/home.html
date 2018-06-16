@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <!-- Bootstrap import -->    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">
+
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/toolbar.css') }}">
+  </head>
+  <body>
+    <div id="body">
+      <!-- Header begin -->
+        {% include 'navbar.html' %}
+      <!-- Header end -->
+      <!-- Area1 begin -->
+        <div id="area1" class="bd-pageheader">
+          <video preload="auto" autoplay="true" loop muted>
+            <source src="/image/_book_wallpaper.jpg" type="video/mp4" />
+            Ici l'alternative à la vidéo : un lien de téléchargement, un message, etc.
+          </video>
+          <div class="container">
+            <div class="row center">
+              <div id="slogan" class="col-sm-offset-1 col-sm-10">
+                <span>Lorem ipsum dolor sit amet</span>
+              </div>
+              <div id="area1-button1" class="col-md-offset-7 col-md-4 col-sm-offset-3 col-sm-6">
+                Click me !
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Area1 end -->
+      <!-- Area2 begin -->
+        <div class="bd-pageheader area ">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <br /><br /><br /><br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <br /><br /><br /><br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <br /><br /><br /><br />
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+      <!-- Area2 end -->
+      <!-- Area3 begin -->
+        <div class="bd-pageheader area ">
+          <div>
+            <div class="container">
+              <div class="row">
+                <h2 class="col-xs-12 subtitle">S'abonner</h2>
+                <p class="col-xs-12">Inscrivez vous dès maintenant, et soyez mis au courant à chaque nouvelle histoire !</p>
+                <div class="col-xs-12">
+                    <div>
+                      <form action="">
+                        <input type="email" name="email" id="email">
+                        <input type="submit" value="submit">
+                      </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Area3 end -->
+      <!-- Area4 begin -->
+        <div class="bd-pageheader area">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row">
+                <!-- Citation1 begin -->
+                  <div class="col-md-offset-0 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12">
+                    <div class="citation">
+                      <div>
+                        <img src="https://success.salesforce.com/resource/sharedlayout/img/new-user-image-default.png" alt="admin1">
+                      </div>
+                      <div>
+                          <p><span>Jean Malin</span>C'est la meilleur expérience de ma vie, TellingMore est un projet de folie.</p>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Citation1 end -->
+                <!-- Citation2 begin -->
+                  <div class="col-md-offset-0 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12">
+                      <div class="citation">
+                        <div>
+                          <img src="https://success.salesforce.com/resource/sharedlayout/img/new-user-image-default.png" alt="admin1">
+                        </div>
+                        <div>
+                            <p><span>Jean Malin</span>C'est la meilleur expérience de ma vie, TellingMore est un projet de folie.</p>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Citation2 end -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Area4 end -->
+      <!-- Footer begin -->
+        <footer class="bd-pageheader">
+          <div class="container">
+            <div class="row">
+              <!-- <p class="col-xs-12">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <br /><br />
+              </p> -->
+              <p class="col-xs-12">
+                LOGO     © 2017 TellingMore Inc. - All rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
+      <!-- Footer end -->
+    </div>
+  </body>
+</html>

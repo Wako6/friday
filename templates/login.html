@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html ng-app="application" lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <!-- Bootstrap import -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">
+
+    <!-- Angular import -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+
+    <!-- jQuery import -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <title>Log in/Sign in</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/toolbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"> </script>
+  </head>
+  <body>
+    <div id="body">
+      <!-- Header begin -->
+      {% include 'navbar.html' %}
+      <!-- Header end -->
+      <!-- Area1 begin -->
+        <div id="area1" class="bd-pageheader">
+          <div class="container" >
+            <div class="row center">
+              <div class="col-xs-12">
+                <div class="row login-body">
+                  <!-- <div class="col-xs-12 login-top">
+                    <h2>Création de compte</h2>
+                  </div> -->
+                  <!-- <div class="col-xs-12 login-container" ng-controller="LoginCtrl"> -->
+                      <!-- <a class="btn btn-sm btn-block btn-facebook ng-binding">Connexion avec Facebook</a> -->
+                      <!-- <a class="btn btn-sm btn-block btn-facebook ng-binding">Conexion</a>
+                      <div class="divider"><strong>ou</strong></div>
+                      <form action="/login" method="post">
+                        <input type="text" name="username" placeholder="Login" ng-model="payload.name" required autofocus>
+                        <input type="password" placeholder="Mot de passe" name="password" ng-model="payload.password" required autofocus>
+                          <input type="submit" ng-click="connect()" value="Se connecter">
+                      </form>
+
+                      <form action="/subcribe" method="post">
+                        <input type="text" name="email" placeholder="Adresse e-mail" ng-model="payload.email" required autofocus>
+                        <input type="text" name="email" placeholder="Comfirmation d'e-mail" ng-model="payload.email" required autofocus>
+                        <input type="text" name="username" placeholder="Login" ng-model="payload.name" required autofocus>
+                        <input type="password" placeholder="Mot de passe" name="password" ng-model="payload.password" required autofocus>
+                          <input type="submit" ng-click="connect()" value="Se connecter">
+                      </form> -->
+                  <!-- </div> -->
+
+                  <div class="form">
+      
+                    <ul class="tab-group">
+                      <li class="tab active"><a href="#signup">Sign Up</a></li>
+                      <li class="tab"><a href="#login">Log In</a></li>
+                    </ul>
+                    
+                    <div class="tab-content">
+                      <div id="signup">   
+                        <h1>Sign Up for Free</h1>
+                        <form action="/subscribe" method="post">
+                        <!-- <div class="top-row">
+                          <div class="field-wrap">
+                            <label>
+                              First Name<span class="req">*</span>
+                            </label>
+                            <input type="text" required autocomplete="off" />
+                          </div>
+                      
+                          <div class="field-wrap">
+                            <label>
+                              Last Name<span class="req">*</span>
+                            </label>
+                            <input type="text" required autocomplete="off"/>
+                          </div>
+                        </div> -->
+
+                        <div class="field-wrap">
+                          <label>
+                            Login<span class="req">*</span>
+                          </label>
+                          <input type="text" name="username" ng-model="payload.name" required autocomplete="off" />
+                        </div>
+              
+                        <div class="field-wrap">
+                          <label>
+                            Email Address<span class="req">*</span>
+                          </label>
+                          <input type="email" name="email" ng-model="payload.email" required autocomplete="off"/>
+                        </div>
+                        
+                        <div class="field-wrap">
+                          <label>
+                            Set A Password<span class="req">*</span>
+                          </label>
+                          <input type="password" name="password" ng-model="payload.password" required autocomplete="off" />
+                        </div>
+                        
+                        <button type="submit" ng-click="connect()" class="button button-block"/>Get Started</button>
+                        
+                        </form>
+              
+                      </div>
+                      
+                      <div id="login">   
+                        <h1>Welcome Back!</h1>
+                        
+                        <form action="/login" method="post">
+                        
+                          <div class="field-wrap">
+                          <label>
+                            Email Address<span class="req">*</span>
+                          </label>
+                        <!-- <input type="text" name="username" ng-model="payload.name" required autocomplete="off" /> -->
+                        <input type="text" name="username" ng-model="payload.email" required autocomplete="off" />
+                        </div>
+                        
+                        <div class="field-wrap">
+                          <label>
+                            Password<span class="req">*</span>
+                          </label>
+                          <input type="password" name="password" ng-model="payload.password" required autocomplete="off" />
+                        </div>
+                        
+                        <p class="forgot"><a href="#">Forgot Password?</a></p>
+                        
+                        <button class="button button-block" ng-click="connect()">Log In</button>
+                        <!-- <input class="button button-block" type="submit" ng-click="connect()" value="Log In"> -->
+                        
+                        </form>
+              
+                      </div>
+                    </div><!-- tab-content -->
+                    
+              </div> <!-- /form -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Area1 end -->
+      <!-- Footer begin -->
+        <footer class="bd-pageheader">
+          <div class="container">
+            <div class="row">
+              <!-- <p class="col-xs-12">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <br /><br />
+              </p> -->
+              <p class="col-xs-12">
+                LOGO     © 2017 TellingMore Inc. - All rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
+      <!-- Footer end -->
+    </div>
+  </body>
+  <script>
+  $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+  
+  var $this = $(this),
+      label = $this.prev('label');
+
+	  if (e.type === 'keyup') {
+			if ($this.val() === '') {
+          label.removeClass('active highlight');
+        } else {
+          label.addClass('active highlight');
+        }
+    } else if (e.type === 'blur') {
+    	if( $this.val() === '' ) {
+    		label.removeClass('active highlight'); 
+			} else {
+		    label.removeClass('highlight');   
+			}   
+    } else if (e.type === 'focus') {
+      
+      if( $this.val() === '' ) {
+    		label.removeClass('highlight'); 
+			} 
+      else if( $this.val() !== '' ) {
+		    label.addClass('highlight');
+			}
+    }
+
+});
+
+$('.tab a').on('click', function (e) {
+  
+  e.preventDefault();
+  
+  $(this).parent().addClass('active');
+  $(this).parent().siblings().removeClass('active');
+  
+  target = $(this).attr('href');
+
+  $('.tab-content > div').not(target).hide();
+  
+  $(target).fadeIn(600);
+  
+});
+  </script>
+</html>

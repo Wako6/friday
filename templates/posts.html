@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Postes</title>
+    <!-- jQuery JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='./jquery/jquery-3.3.1.min.js') }}"></script>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./uikit/css/uikit.min.css') }}">
+    <!-- UIkit JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='./uikit/js/uikit.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='./uikit/js/uikit-icons.min.js') }}"></script>
+
+    <!-- Friday CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./font/proxima-nova/fonts.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./font/san-francisco/stylesheet.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/posts.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/star_rating.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/switch_toggle.css') }}">
+    
+</head>
+ <body>
+    <div  class="uk-offcanvas-content" >
+        <!-- Navbar -->
+        <header id="header" class="uk-navbar-container tm-navbar-container uk-sticky uk-sticky-fixed uk-active uk-sticky-below" uk-sticky="media: 960" style="position: fixed; top: 0px; width: 1848px;">
+            <div class="uk-container uk-container-expand">
+                <!-- Navbar content -->
+                <nav class="uk-navbar" uk-navbar>
+                    <!-- Logo -->
+                    <div class="uk-navbar-left">
+                        <a class="uk-navbar-item uk-logo" href="#">Logo</a>
+                    </div>
+                    <!-- End logo -->
+
+                    <div class="nav-overlay uk-navbar-right">
+                        <!-- Items of navbar -->
+                        <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+
+                        <a class="uk-navbar-toggle" href="#offcanvas-usage" uk-icon="icon: settings" uk-toggle></a>
+
+                        <ul class="uk-navbar-nav uk-visible@m">
+                            {% if request.cookies.get('token')%}
+                                <li class="uk-navbar-toggle"><a href="/logout"><span uk-icon="icon: sign-out"></span>Logout</a></li>
+                            {% else %}
+                                <li class="uk-navbar-toggle"><a href="/login"><span uk-icon="icon: sign-in"></span>Login</a></li>
+                                <li class="uk-navbar-toggle"><a href="/"><span uk-icon="icon: home"></span>Home</a></li>   
+                            {% endif %}
+                        </ul>
+                        <!-- End items of navbar -->
+
+                        <!-- Menu Smartphone media -->
+                        <div class="uk-inline uk-hidden@m">
+                            <button class="uk-button uk-button-default " type="button"><span uk-icon="icon: menu"></span></button>
+                            <div uk-dropdown="pos: bottom-justify">
+                                <ul class="uk-nav uk-dropdown-nav navbar-small-media">
+                                    <li class="uk-active"><a href="#">Active</a></li>
+                                    <li><a href="#">Item</a></li>
+                                    <li class="uk-nav-header">Header</li>
+                                    <li><a href="#">Item</a></li>
+                                    <li><a href="#">Item</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="#">Item</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End menu Smartphone media -->
+                    </div>
+                    <!-- Search bar -->
+                    <div class="nav-overlay uk-navbar-left uk-flex-1 uk-width-1-4@s" hidden>
+                
+                        <div class="uk-navbar-item uk-width-expand">
+                            <form class="uk-search uk-search-navbar uk-width-1-1">
+                                <input class="uk-search-input uk-text-center uk-text-nowrap" type="search" placeholder="Do you search something..." autofocus>
+                            </form>
+                        </div>
+                
+                        <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+                
+                    </div>
+                    <!-- End search bar -->
+                </nav>
+                <!-- End navbar content -->
+            </div>
+        </header>
+        <!-- End navbar -->
+        <div class="uk-container uk-container-small body">
+            <!-- Hello world! -->
+            <div class="uk-child-width-1-1 uk-grid-match" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-hover uk-card-body hello-world">
+                        <h2 class="uk-card-title"><cite>Hi{% if username != None %} {{username}} {% else %} Guest {% endif %}</cite></h2>
+                    </div>
+                </div>
+            </div>
+            <!-- End hello world! -->
+
+            <!-- Random speech area -->
+            <div class="speech" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <h3>Notice</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <!-- End random speech area -->
+
+            <hr class="uk-divider-icon">
+            <!-- List of posts container -->
+            <div>
+                <ul class="offer-list">
+                    {% for post in post_list %}
+                        <!-- Post container -->
+                        <li>
+                            <div class="post-container uk-card uk-card-small uk-card-default uk-box-shadow-medium uk-box-shadow-hover-large uk-grid-collapse uk-margin uk-border-rounded" uk-grid>
+                                <div class="uk-width-1-3@s uk-card-media-left uk-cover-container">
+                                    <!-- Image(s) of post -->
+                                    {% if post.image_path %}
+                                        <!-- Images with transition effect on hover -->
+                                        <a class="uk-button uk-button-default" href="#modal-center" uk-toggle uk-cover>
+                                            <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                                                <img src="{{ post.image_path }}" alt="">
+                                                <img class="uk-transition-scale-up uk-position-cover" src="https://dailygeekshow.com/wp-content/uploads/2015/06/animation-nuit-etoilee.jpg" alt="">
+                                            </div>
+                                        </a>
+                                        <!-- End images with transition effect on hover -->
+
+                                        <!-- Diaporama of picture after click -->
+                                        <div id="modal-center" class="uk-flex-top image-slider" uk-modal> <!-- NEED A SPECIAL ID -->
+                                            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-padding-remove" style="background-color: rgba(0,0,0,0);">
+
+                                                <button class="uk-modal-close-default uk-close-large" type="button" uk-close></button>
+                                                <div uk-slideshow="animation: push">
+
+                                                    <div class="uk-position-relative uk-visible-toggle uk-light">
+                                                        <!-- List of image of diaporama -->
+                                                        <ul class="uk-slideshow-items">
+                                                            <li>
+                                                                <img src="{{ post.image_path }}" alt="" uk-cover>
+                                                            </li>
+                                                            <li>
+                                                                <img src="https://dailygeekshow.com/wp-content/uploads/2015/06/animation-nuit-etoilee.jpg" alt="" uk-cover>
+                                                            </li>
+                                                            <li>
+                                                                <img src="https://www.repro-tableaux.com/kunst/gustave_courbet/thm_ornans.jpg" alt="" uk-cover>
+                                                            </li>
+                                                        </ul>
+                                                        <!-- Diaporama's arrows control -->
+                                                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                                                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+                                                
+                                                    </div>
+                                                
+                                                    <!-- Miniature of images of diaporama -->
+                                                    <div class="uk-container-expand">
+                                                        <div class="uk-position-bottom-out uk-position-small uk-flex-center">
+                                                            <ul class="uk-thumbnav">
+                                                                <li uk-slideshow-item="0"><a href="#"><img src="{{ post.image_path }}" width="100" alt=""></a></li>
+                                                                <li uk-slideshow-item="1"><a href="#"><img src="https://dailygeekshow.com/wp-content/uploads/2015/06/animation-nuit-etoilee.jpg" width="100" alt=""></a></li>
+                                                                <li uk-slideshow-item="2"><a href="#"><img src="https://www.repro-tableaux.com/kunst/gustave_courbet/thm_ornans.jpg" width="100" alt=""></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End diaporama of picture after click -->
+                                    {% else %}
+                                        <!-- Post without picture case -->
+                                        <img class="post-img" src="https://shop.mywifi.no/templates/newyork/images/no_image.png" alt="" uk-cover>
+                                    {% endif %}
+                                    <canvas width="600" height="400"></canvas>
+                                </div>
+                                <!-- Post container -->
+                                <div class="post uk-width-2-3@s">
+                                    <!-- <div class="uk-width-1-6@s">
+                                        <div class="post-infos uk-flex uk-flex-center">
+                                            <div class="uk-display-block">
+                                                <img src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Star_Gold-64.png">
+                                                <div class="uk-text-center">455</div>
+                                            </div>
+                                        </div>
+                                        <div class="post-infos">
+
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-5-6@s"> -->
+                                        <!-- Post title -->
+                                        <div class="uk-card-header">
+                                            <span class="uk-text-lead uk-display-block">{{ post.title }}</span>
+                                            <span class="uk-text-meta">{{ post.created_at }}</span>
+                                            <hr>
+                                        </div>
+                                        <!-- End post title -->
+                                        <!-- Post body -->
+                                        <!-- <div class="uk-card-body">
+                                            <div class="uk-flex uk-flex-middle uk-text-center">
+                                                {% include 'star_rating.html' %}
+                                                <span class="uk-badge">4.5</span>
+                                                <span class="uk-badge">10 votes</span>
+                                            </div>
+                                                
+                                            <p>{{ post.body }}</p>
+                                        </div> -->
+                                    <!-- </div> -->
+                                    <!-- Post body -->
+                                </div>
+                                <!-- End post container -->
+                            </div>
+                        </li>
+                        <!-- End post container -->
+                    {% else %}
+                        <!-- No post case -->
+                        <li class="empty-list"><em><span uk-icon="icon: warning"></span>Unbelievable.  No Post here so far</em></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- End List of posts container -->
+
+            <!-- Option container -->
+            <div id="offcanvas-usage" uk-offcanvas="flip: true; mode: slide; overlay: false; bg-close: false;">
+                <div class="uk-offcanvas-bar">
+        
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+                    <!-- Sort container -->
+                    <h3 class="uk-heading-divider">Sorting</h3>
+                    <div class="uk-margin">
+                        <select class="uk-select">
+                            <option>Sort by ...</option>
+                            <option>Date de publication</option>
+                            <option>Theme</option>
+                            <option>Note</option>
+                            <option>Alphabetique</option>
+                        </select>
+                    </div>
+                    <div class="switch-toggle"><input type="checkbox" checked=""/>
+                    </div>
+                    <!-- End sort container -->
+
+                    <!-- Favorite container -->
+                    <h3 class="uk-heading-divider">Favorite</h3>
+                    
+                    <ul uk-accordion="multiple: true">
+                        <li class="uk-open">
+                            <a class="uk-accordion-title" href="#">Item 1</a>
+                            <div class="uk-accordion-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="uk-accordion-title" href="#">Item 2</a>
+                            <div class="uk-accordion-content">
+                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="uk-accordion-title" href="#">Item 3</a>
+                            <div class="uk-accordion-content">
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- End favorite container -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Friday JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='./js/star_rating.js') }}"></script>
+</body>
+</html>

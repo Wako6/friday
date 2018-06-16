@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau poste</title>
+        <form method=post enctype=multipart/form-data action="/posts">
+        <p>
+            <label>Title</label>
+            <input type="text" name="title">
+        </p>
+        <p>
+            <label>Description</label>
+            <input type="text" name="body">
+        </p>
+        <p>
+            <label>Photos</label>
+            <input type=file name=file>
+        </p>
+            {% for topic in topic_list %}
+                <input type="checkbox" name="topic" value="{{topic.name}}"> {{topic.name}}
+            {% endfor %}
+         <input type=submit value=Upload>
+        </form>
+</head>
+<body>
+
+</body>
+</html>

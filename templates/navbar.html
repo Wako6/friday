@@ -1,0 +1,64 @@
+<!-- <html lang="fr">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+
+    <!-- Bootstrap import -->
+    <!-- <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/toolbar.css">
+  </head>
+  <body> -->
+    <header>
+      <div id="header" class="bd-pageheader">
+        <div class="container">
+          <div class="row">
+            <div id="logo" class="col-xs-3">
+              <img src="https://fix-my-logo.com/assets/images/fix-my-logo.svg">
+            </div>
+            <nav class="col-xs-9">
+              <div class="visible-sm visible-xs">
+                <span class="glyphicon glyphicon-menu-hamburger" ></span>
+              </div>
+              <div class="list hidden-sm hidden-xs">
+                <ul class="list-inline">
+                  <li class="list-inline-item"><a href="/standing">Standing</a></li>
+                  <li class="list-inline-item"><a href="/about">About</a></li>
+                  {% if request.cookies.get('token')%}
+                  <li class="list-inline-item"><a href="/logout">Logout</a></li>
+                  {% else %}
+                  <li class="list-inline-item"><a href="/login">Sign In</a></li>
+                  <li class="list-inline-item"><a href="/">Sign Up</a></li>   
+                  {% endif %}
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+  <!-- </body>
+</html> -->
+
+ <!-- <header>
+          <div id="header" class="bd-pageheader">
+            <div class="container">
+              <div class="row">
+                <div id="logo" class="col-xs-3">
+                  <img src="https://fix-my-logo.com/assets/images/fix-my-logo.svg">
+                </div>
+                <nav class="col-xs-9">
+                  <div class="visible-sm visible-xs">
+                    <span class="glyphicon glyphicon-menu-hamburger" ></span>
+                  </div>
+                  <div class="list hidden-sm hidden-xs">
+                    <ul class="list-inline">
+                      <li class="list-inline-item"><a href="/standing">Standing</a></li>
+                      <li class="list-inline-item"><a href="/about">About</a></li>
+                      <li class="list-inline-item"><a href="/login">Sign Up</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </header> -->

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <!-- Bootstrap import -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">
+
+        <title>Thèmes</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/toolbar.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/topics.css') }}">
+    </head>
+    <body>
+        <div id="body">
+        <!-- Header begin -->
+        {% include 'navbar.html' %}
+        <!-- Header end -->
+        <!-- Area1 begin -->
+            <div id="area1" class="bd-pageheader">
+                <div class="container" >
+                    <div class="row center">
+                        <div class="col-xs-12">
+                            <ul class="row">
+                            {% for topic in topic_list %}
+                            <li class="col-sm-6 col-xs-12">
+                                    <div style="background-image: url('{{ topic.image_path }}');"></div>
+                                    <h2>{{ topic.name }}</h2>
+                            </li>
+                            {% else %}
+                                <li><em>Unbelievable.  No Topic here so far</em></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

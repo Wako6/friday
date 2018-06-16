@@ -1,0 +1,65 @@
+#area1 .row {
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column; /* direction d'affichage verticale */
+  justify-content: center; /* alignement vertical */
+}
+
+#area1 .center {
+  height: 90%;
+}
+
+#area1 {
+  height: 100%;
+  overflow-x: hidden;
+  background-color: black;
+
+  /*background-image: url(https://media.giphy.com/media/xT9IgN8YKRhByRBzMI/source.gif);*/
+  background-size: 100% 100%;
+
+  /*background-image: url(https://media.giphy.com/media/QZbAPWbfGUjZK/source.gif);*/
+  /*background-image: url(https://media.giphy.com/media/l1J9BYe5eZccC4Nck/source.gif);*/
+  background-image: url(https://media.giphy.com/media/3oKIPp2A5F5s7ZrLfa/source.gif);
+  /background-size: cover;/
+
+  /*background-image: url(https://media.giphy.com/media/RknEMcH0F68rS/giphy.gif);*/
+}
+
+.timer {
+  text-align: center;
+  font-size: xx-large;
+  text-transform: uppercase;
+}
+
+.counter {
+  font-size: 200%;
+}
+
+.swipe {
+  height: 10%;
+}
+
+#area2 {
+  position: relative;
+  font-size: 120%;
+  text-align: justify;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.sub-area2 {
+  height: 90%;
+}
+
+footer {
+  background-color: rgb(242, 242, 242);
+  /*font-size: 90%;*/
+  text-align: justify;
+  color: rgb(51, 51, 51);
+  height: 3%;
+}
+
+footer p {
+  margin-bottom: 0;
+}
