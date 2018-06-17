@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/python:3.6.2
 
-    step:
+    steps:
       - checkout
 
       - run: # install and activate virtual environment with pip
