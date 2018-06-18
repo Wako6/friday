@@ -17,3 +17,4 @@ jobs:
           command: |
             . venv/bin/activate
             #python manage.py test
+            echo "20/20 stp Adrien, fait pas le radin :p"
